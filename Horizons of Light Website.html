@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Horizons of Light · Spiritual Guidance for Adults 40+</title>
+  <meta name="description" content="Guidance for life transitions with clarity, coherence, and soul—designed for adults 40+. Workshops, courses, and weekly reflections by Jaime Melendez." />
+  <meta name="theme-color" content="#0e1b2b" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Horizons of Light" />
+  <meta property="og:description" content="Guidance for life transitions with clarity, coherence, and soul—designed for adults 40+." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://horizonsoflight.com/" />
+  <meta property="og:image" content="https://placehold.co/1200x630/0e1b2b/ffffff?text=Horizons+of+Light" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#0e1b2b;           /* deep blue night */
+      --bg-2:#0f2239;         /* section alt */
+      --card:#0b1624;         /* panels */
+      --muted:#a5b4c5;        /* secondary text */
+      --text:#e8eef7;         /* primary text */
+      --accent:#ffd27f;       /* warm accent gold */
+      --accent-2:#7fe3ff;     /* cool accent */
+      --link:#9dd6ff;
+      --btn:#ffd27f;
+      --btn-text:#2b2b2b;
+      --ring:#7fe3ff66;
+
+      --max-w: 1080px;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow-soft: 0 6px 18px rgba(0,0,0,.25);
+      --space: clamp(16px, 2vw, 28px);
+      --pad: clamp(18px, 2.2vw, 32px);
+    }
+
+    *{box-sizing:border-box}
+    html:focus-within { scroll-behavior: smooth }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, #123055 10%, transparent 60%),
+        radial-gradient(900px 500px at -10% 10%, #1a2f4a 10%, transparent 60%),
+        linear-gradient(180deg, #0a1420, #0e1b2b 40%, #0b1624 100%);
+      background-attachment: fixed;
+      line-height:1.65;
+    }
+
+    a{ color: var(--link); text-underline-offset: 3px }
+    a:hover{ color:#c6e6ff }
+
+    /* Layout */
+    .container{ max-width: var(--max-w); margin-inline:auto; padding-inline: var(--space) }
+    section{ padding: calc(var(--space)*2) 0; border-top: 1px solid #ffffff10 }
+    section:first-of-type{ border-top: none }
+
+    /* Header / Nav */
+    header{
+      position: sticky; top:0; z-index: 1000;
+      background: rgba(10, 20, 32, 0.65);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ffffff14;
+    }
+    .nav{
+      display:flex; align-items:center; gap:16px; justify-content:space-between; padding:10px var(--space);
+      max-width:var(--max-w); margin-inline:auto;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:700; letter-spacing:.3px }
+    .brand .dot{ width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg, var(--accent), #fff3c1) }
+    .brand span{ font-family: Merriweather, Georgia, serif }
+    nav ul{ display:flex; gap:16px; list-style:none; margin:0; padding:0; flex-wrap:wrap }
+    nav a{ color:var(--text); text-decoration:none; opacity:.9; padding:6px 10px; border-radius:8px }
+    nav a[aria-current="true"], nav a:hover{ background:#ffffff12 }
+
+    /* Hero */
+    #hero{
+      padding: clamp(60px, 12vh, 140px) 0 clamp(32px, 8vh, 80px);
+      background:
+        radial-gradient(700px 350px at 20% 20%, #23395c66 0%, transparent 60%),
+        radial-gradient(800px 400px at 80% 10%, #2f3b5a4d 0%, transparent 65%);
+    }
+    #hero .container{
+      display:grid; gap: clamp(18px, 2vw, 26px);
+      grid-template-columns: 1.2fr .8fr;
+    }
+    @media (max-width: 900px){
+      #hero .container{ grid-template-columns: 1fr }
+    }
+    .hero-copy h1{
+      font-family: Merriweather, Georgia, serif;
+      font-size: clamp(28px, 4.6vw, 48px);
+      line-height:1.15; margin:0 0 10px;
+      background: linear-gradient(180deg, #ffffff, #cfe8ff 70%, #9dd6ff);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-copy p{ color: var(--muted); font-size: clamp(16px, 1.6vw, 18px); margin:0 0 12px }
+    .cta{ display:flex; gap:12px; flex-wrap:wrap; align-items:center }
+    .btn{
+      appearance:none; border:none; cursor:pointer;
+      padding: 12px 18px; border-radius: 999px; font-weight: 600;
+      color: var(--btn-text); background: var(--btn);
+      box-shadow: var(--shadow-soft);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover{ filter: brightness(1.05) }
+    .btn:focus-visible{ outline:2px solid transparent; box-shadow: 0 0 0 4px var(--ring) }
+    .btn-secondary{
+      background: transparent; color: var(--text);
+      border: 1px solid #ffffff40;
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, #0f1a2a, #0b1624);
+      border: 1px solid #ffffff12;
+      border-radius: var(--radius);
+      padding: var(--pad);
+      box-shadow: var(--shadow);
+    }
+    .hero-card h3{ margin:0 0 8px; font-size: 18px }
+    .hero-card p{ margin:0 0 14px; color: var(--muted) }
+
+    /* Generic section styles */
+    h2{ font-family: Merriweather, Georgia, serif; font-size: clamp(22px, 2.6vw, 34px); margin: 0 0 10px }
+    h3{ font-size: 18px; margin: 0 0 6px }
+    #intro p, #why p, #signature-workshop p, #et-teaser p, #free-guide p, #courses p, #about-jaime p{ color: var(--muted) }
+
+    ul{ padding-left: 18px; margin: 0.2rem 0 0.8rem }
+    li + li{ margin-top: 6px }
+
+    .panel{
+      background: linear-gradient(180deg, #0f1a2a, #0b1624);
+      border: 1px solid #ffffff12;
+      border-radius: var(--radius);
+      padding: var(--pad);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .grid{
+      display: grid; gap: var(--space);
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .col-6{ grid-column: span 6 }
+    .col-4{ grid-column: span 4 }
+    .col-7{ grid-column: span 7 }
+    .col-5{ grid-column: span 5 }
+    .col-8{ grid-column: span 8 }
+    .col-12{ grid-column: span 12 }
+    @media (max-width: 900px){
+      .col-6, .col-4, .col-7, .col-5, .col-8{ grid-column: span 12 }
+    }
+
+    .credentials{ columns: 1; column-gap: 24px; padding-left: 18px }
+    @media (min-width: 720px){ .credentials{ columns: 2 } }
+
+    blockquote{
+      margin: 0; padding: 14px 16px; border-left: 4px solid var(--accent);
+      background: #ffffff0a; border-radius: 8px;
+    }
+
+    /* Forms */
+    form{ display:grid; gap: 12px; max-width: 640px }
+    input, select, textarea{
+      width:100%; padding: 12px 14px; border-radius: 12px;
+      background:#0a1420; color:var(--text);
+      border:1px solid #ffffff22;
+    }
+    input::placeholder, textarea::placeholder{ color:#b9c6d9 }
+    input:focus-visible, select:focus-visible, textarea:focus-visible{
+      outline:2px solid transparent; box-shadow: 0 0 0 4px var(--ring)
+    }
+    .tags{ display:flex; gap: 12px; flex-wrap: wrap; color: var(--muted) }
+    .tags label{ display:flex; align-items:center; gap:6px; background:#ffffff0a; padding:6px 10px; border-radius: 999px; border:1px solid #ffffff1a }
+
+    /* Footer */
+    footer{ padding: 24px 0; color: #b7c6d8; text-align:center; border-top: 1px solid #ffffff10 }
+
+    /* Section color alternation */
+    #why, #offerings, #courses, #testimonials{ background: linear-gradient(180deg, #0f2239, #0e1b2b) }
+
+    /* Helpers */
+    .origin{ font-size: 0.95rem; color: var(--muted) }
+    .link{ color: var(--accent) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <header>
+    <div class="nav">
+      <div class="brand" aria-label="Horizons of Light">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Horizons of Light</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#why">Why</a></li>
+          <li><a href="#about-jaime">About</a></li>
+          <li><a href="#offerings">Offerings</a></li>
+          <li><a href="#signature-workshop">Workshop</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#signup">Join</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero">
+      <div class="container">
+        <div class="hero-copy">
+          <h1>Go Beyond the Visible. Walk Toward Your Horizon of Spiritual Light.</h1>
+          <p>Guidance for life transitions with clarity, coherence, and soul—designed for adults 40+.</p>
+          <div class="cta">
+            <a href="#free-guide" class="btn">Get the Free 7-Day Alignment Mini-Plan</a>
+            <a href="#signup" class="btn btn-secondary">Join the Community</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Highlights">
+          <h3>What you'll receive</h3>
+          <p>Simple practices to realign body, mind, and spirit—designed to fit real life.</p>
+          <ul>
+            <li>3 micro-rituals each day</li>
+            <li>Gentle reflection prompts</li>
+            <li>Weekly support + updates</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="intro">
+      <div class="container">
+        <p>Horizons of Light is a sanctuary for seekers ready to move beyond the limits of the physical world and elevate their consciousness. Curated by Life & Career Coach and Spiritual Leader, <strong>Jaime Melendez</strong>, this space blends timeless wisdom with practical tools to help you align body, mind, and spirit and rediscover meaning in your next chapter.</p>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container grid">
+        <div class="col-6">
+          <h2>Why Horizons of Light</h2>
+          <ul>
+            <li><strong>Awareness:</strong> See your life with compassion and truth.</li>
+            <li><strong>Alignment:</strong> Choose actions that honor your values.</li>
+            <li><strong>Presence:</strong> Tend to body, mind, and spirit with care.</li>
+            <li><strong>Purpose:</strong> Live from your essence, not expectations.</li>
+          </ul>
+        </div>
+        <div class="col-6 panel">
+          <p class="origin">After 20+ years in the U.S., Jaime returned to Chile to reconnect with his roots, care for his parents, and step fully into a path of mysticism—studying Kabbalah at the Kabbalah Centre in Los Angeles (since 2013; trainings with Michael Berg and family), completing the Miller Introduction to Judaism Program at American Jewish University, and earning certificates in Kabbalah, Astrology, and Spiritual Channeling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about-jaime">
+      <div class="container grid">
+        <div class="col-12">
+          <h2>About Jaime Melendez</h2>
+        </div>
+        <div class="col-6">
+          <p>I guide adults 40+ through meaningful life transitions by uniting spiritual wisdom with pragmatic coaching. Former Trade Commissioner of Chile (ProChile, Chicago) and award-winning entrepreneur (RIMCO Foods, MBDA "Corporation of the Year," 2008), I now focus on helping others align purpose, values, and action.</p>
+          <div class="cta" style="margin-top:10px">
+            <a href="#courses" class="link">Explore Courses</a> •
+            <a href="#workshops" class="link">See Workshops</a>
+          </div>
+        </div>
+        <div class="col-6">
+          <ul class="credentials">
+            <li>Kabbalah Centre (Los Angeles): Member since 2013; trainings with Michael Berg and family</li>
+            <li>American Jewish University: Graduate, Miller Introduction to Judaism Program</li>
+            <li>Certificates: Kabbalah, Astrology, Spiritual Channeling</li>
+            <li>Research Interests: Extraterrestrial consciousness and spiritual knowledge</li>
+            <li>Education: PUC Chile (Engineering/Marketing); MBA Loyola University Chicago</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="offerings">
+      <div class="container">
+        <h2>What You'll Find Here</h2>
+        <div class="grid">
+          <div class="col-6 panel">
+            <h3>Weekly Posts</h3>
+            <p>Insights on purpose, presence, and transitions.</p>
+          </div>
+          <div class="col-6 panel">
+            <h3>eBooks</h3>
+            <p>Deep dives into Kabbalah, Astrology, and conscious living.</p>
+          </div>
+          <div class="col-6 panel">
+            <h3>Courses</h3>
+            <p>Structured journeys for lasting change (with live Q&A and printables).</p>
+          </div>
+          <div class="col-6 panel">
+            <h3>Workshops</h3>
+            <p>Experiential sessions to turn clarity into action.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="signature-workshop">
+      <div class="container grid">
+        <div class="col-8">
+          <h2>Transitions with Consciousness (90 minutes)</h2>
+          <p>A guided experience to move from hesitation to clarity through breathwork, somatic practices, reflective journaling, and spiritual tools from Kabbalah, Astrology, and guided channeling.</p>
+          <ul>
+            <li>7-day mini plan</li>
+            <li>Three aligned actions</li>
+            <li>Presence and self-coherence practices</li>
+          </ul>
+          <a href="#waitlist" class="btn">See Dates & Join the Waitlist</a>
+        </div>
+        <aside class="col-4 panel" id="workshops" aria-label="Workshop Note">
+          <h3>Who it's for</h3>
+          <p>Adults 40+ navigating change—career, relationship, caregiving, or inner transformation.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="courses">
+      <div class="container">
+        <h2>Courses</h2>
+        <div class="grid">
+          <article class="col-4 panel">
+            <h3>Purpose in Action (4 weeks)</h3>
+            <p>Clarify values, define your next chapter, design a 30-day action plan.</p>
+          </article>
+          <article class="col-4 panel">
+            <h3>Conscious Transitions (6 weeks)</h3>
+            <p>Map your phase (Finish–Flow–Found), release patterns, anchor new habits with Alinea 3x3.</p>
+          </article>
+          <article class="col-4 panel">
+            <h3>Kabbalah & Life Decisions (4 weeks)</h3>
+            <p>Core Kabbalah principles applied to relationships, work, and purpose—enriched by AJU and complementary modalities.</p>
+          </article>
+        </div>
+        <div class="cta" style="margin-top:14px">
+          <a href="#waitlist" class="btn btn-secondary">View Courses / Join the Waitlist</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="et-teaser">
+      <div class="container panel">
+        <h2>Optional: Consciousness & ET Studies</h2>
+        <p>For those called to explore expanded consciousness, we offer neutral summaries and practices inspired by Bashar, Council of Light, Pleiadians, Arcturians, and narratives about Greys & Hybrid Children—always with discernment, ethics, and grounded integration.</p>
+        <a href="/et-studies" class="link">Explore Optional Page</a>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <h2>Testimonials</h2>
+        <div class="grid">
+          <div class="col-6">
+            <blockquote>"Jaime's workshop brought me back to my center. I left with simple practices that actually stuck." — A.M., 52</blockquote>
+          </div>
+          <div class="col-6">
+            <blockquote>"Clear, compassionate, and practical. I felt seen and supported." — L.R., 47</blockquote>
+          </div>
+        </div>
+        <div class="cta" style="margin-top:14px">
+          <a href="#contact" class="link">Share Your Experience</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="free-guide">
+      <div class="container grid">
+        <div class="col-7">
+          <h2>Free 7-Day Alignment Mini-Plan</h2>
+          <p>Three micro-rituals (body, mind, spirit), daily prompts for clarity, and a simple review to adjust with kindness.</p>
+          <a href="#signup" class="btn">Download Now</a>
+        </div>
+        <aside class="col-5 panel" aria-label="What's inside">
+          <h3>Inside the mini-plan</h3>
+          <ul>
+            <li>Morning intention + breath (3 minutes)</li>
+            <li>Midday check-in ritual (2 minutes)</li>
+            <li>Evening reflection prompt (4 minutes)</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="signup">
+      <div class="container">
+        <h2>Join the Community</h2>
+        <p>Receive weekly reflections, event updates, and early access to workshops and courses.</p>
+        <form id="subscribe-form" novalidate>
+          <label class="sr-only" for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required />
+          <label class="sr-only" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Email Address" required />
+          <label>Interests (optional):</label>
+          <div class="tags">
+            <label><input type="checkbox" name="interest" value="posts" /> Posts</label>
+            <label><input type="checkbox" name="interest" value="courses" /> Courses</label>
+            <label><input type="checkbox" name="interest" value="workshops" /> Workshops</label>
+            <label><input type="checkbox" name="interest" value="consciousness" /> Consciousness Notes</label>
+          </div>
+          <button type="submit" class="btn">Subscribe</button>
+          <p id="subscribe-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>If you're entering a new chapter or curating an event for a 40+ audience, let's connect.</p>
+        <ul>
+          <li>Website: HorizonsofLight.com</li>
+          <li>Speaking & Workshops: Inquire for availability and custom programs</li>
+          <li>Coaching & Courses: Request details and start dates</li>
+        </ul>
+        <form id="contact-form" novalidate>
+          <label class="sr-only" for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Full Name" required />
+          <label class="sr-only" for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" placeholder="Email Address" required />
+          <label class="sr-only" for="topic">Topic</label>
+          <select id="topic" name="topic" aria-label="Topic">
+            <option>Coaching</option>
+            <option>Courses</option>
+            <option>Workshops</option>
+            <option>Speaking</option>
+            <option>Other</option>
+          </select>
+          <label class="sr-only" for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can I help?" rows="5" required></textarea>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="contact-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Horizons of Light — A journey beyond the physical into Spiritual Light.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smoothly mark active nav item based on scroll
+    const navLinks = [...document.querySelectorAll('nav a')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+    const setActive = () => {
+      const y = window.scrollY + 140; // header offset
+      let current = sections[0].id;
+      for (const sec of sections) {
+        if (y >= sec.offsetTop) current = sec.id;
+      }
+      navLinks.forEach(a => a.setAttribute('aria-current', a.getAttribute('href') === '#' + current ? 'true' : 'false'));
+    };
+    document.addEventListener('scroll', setActive, { passive: true });
+    window.addEventListener('load', setActive);
+
+    // Minimal client-side validation and demo handlers
+    const subscribeForm = document.getElementById('subscribe-form');
+    const subscribeMsg = document.getElementById('subscribe-msg');
+    subscribeForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(subscribeForm);
+      const name = data.get('name')?.toString().trim();
+      const email = data.get('email')?.toString().trim();
+      if (!name || !email) {
+        subscribeMsg.textContent = 'Please enter your name and a valid email.';
+        return;
+      }
+      subscribeMsg.textContent = 'Thanks for subscribing! Please check your inbox.';
+      subscribeForm.reset();
+
+      // TODO: Replace with your real endpoint (e.g., ConvertKit, Mailchimp, Beehiiv, Buttondown)
+      // await fetch('/api/subscribe', { method:'POST', body: data });
+    });
+
+    const contactForm = document.getElementById('contact-form');
+    const contactMsg = document.getElementById('contact-msg');
+    contactForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(contactForm);
+      const fullname = data.get('fullname')?.toString().trim();
+      const email = data.get('email')?.toString().trim();
+      const message = data.get('message')?.toString().trim();
+      if (!fullname || !email || !message) {
+        contactMsg.textContent = 'Please complete all fields.';
+        return;
+      }
+      contactMsg.textContent = 'Message sent! We'll reply within 2 business days.';
+      contactForm.reset();
+
+      // TODO: Replace with your real endpoint (e.g., Formspree, Basin, Netlify Forms)
+      // await fetch('/api/contact', { method:'POST', body: data });
+    });
+  </script>
+</body>
+</html>
